@@ -185,8 +185,9 @@ export class NxWelcomeComponent implements OnInit  {
 
     renderer = new WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( window.innerWidth / 2 , window.innerHeight / 2 );
     renderer.setAnimationLoop( animate );
+    // renderer.domElement.classList.add("canvas-container");
     this.container?.nativeElement?.appendChild( renderer.domElement );
 
     //

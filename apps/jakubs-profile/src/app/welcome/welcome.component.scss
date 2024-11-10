@@ -1,32 +1,107 @@
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
-  svg {
-    font-family: "Russo One", sans-serif;
-    width: 100%;
-    height: 100%;
-  }
+/* Reset body styles */
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: black;
+}
 
-  svg text {
-    animation: stroke 5s linear forwards;
-    stroke-width: 2;
-    stroke: #365FA0;
-    font-size: 100px;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-  }
+/* Container styling */
+#container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+	width: 100%;
+}
 
-  @keyframes stroke {
-    from {
-      fill: rgba(72, 138, 204, 0);
-      stroke: rgba(54, 95, 160, 1);
-      stroke-dashoffset: 1000;
-    }
-    to {
-      fill: rgba(72, 138, 204, 1);
-      stroke: rgba(54, 95, 160, 1);
-      stroke-dashoffset: 0;
-      stroke-dasharray: 0;
-      stroke-width: 2; /* Keep stroke-width consistent */
-    }
-  }
+/* General SVG Styling */
+svg {
+	font-family: "Russo One", sans-serif;
+	width: 100%;
+	// max-width: 600px;
+}
 
+/* Animated Text Styling */
+.animated-text {
+	width: 100%;
+	// height: 150px;
+}
+
+.animated-text text {
+	animation: text-appear 5s linear forwards;
+	stroke-width: 2;
+	stroke: #365FA0;
+	font-size: 100px;
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 0;
+	fill: transparent;
+}
+
+@keyframes text-appear {
+	0% {
+		fill: transparent;
+		stroke-dashoffset: 1000;
+	}
+
+	100% {
+		fill: rgba(72, 138, 204, 1);
+		stroke-dashoffset: 0;
+		stroke-dasharray: 1000;
+	}
+}
+
+/* Button Container Styling */
+.button-container {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	width: 100%;
+}
+
+/* Animated Button Styling */
+.animated-button {
+	width: 100%;
+	height: 100px;
+	cursor: pointer;
+}
+
+.animated-button rect {
+	fill: #365FA0;
+	stroke: #365FA0;
+	stroke-width: 2;
+	rx: 20;
+	ry: 20;
+	transition: fill 0.3s, stroke 0.3s;
+}
+
+.animated-button text {
+	font-size: 30px;
+	fill: rgba(72, 138, 204, 0);
+	stroke: #fff;
+	stroke-width: 1;
+	stroke-dasharray: 300;
+	stroke-dashoffset: 300;
+	animation: text-stroke 3s linear forwards;
+}
+
+@keyframes text-stroke {
+	to {
+		stroke-dashoffset: 0;
+		fill: rgba(72, 138, 204, 1);
+		stroke-width: 0;
+	}
+}
+
+.animated-button:hover rect {
+	fill: #488ACC;
+	stroke: #488ACC;
+}
+
+.animated-button:hover text {
+	fill: rgba(72, 138, 204, 1);
+}
